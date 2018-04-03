@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+
+{% block title %}Requests{% endblock %}
+
+{% block content %}
+
+
+<div class="container-main" >
+  <center><h5>Requests</h5></center>
+  <br>
+  <div class="row justify-content-center">
+      <div class="client-requests">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Target Date</th>
+                <th>Product ID</th>
+                <th>Client ID</th>
+                <th>Client Request Priority</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for request in all_client_requests %}
+                <tr>
+                  <td>{{ request.title }}</td>
+                  <td>{{ request.target_date }}</td>
+                  <td>{{ request.product_id }}</td>
+                  <td>{{ request.client_id }}</td>
+                  <td>{{ request.client_request_priority }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+
+{% endblock %}

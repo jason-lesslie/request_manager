@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block title %}Create Client{% endblock %}
+
+{% block content %}
+
+<div class="container-main" >
+  <center><h5>Create Client</h5></center>
+  <br>
+  <div class="row justify-content-center">
+    <div class="col-sm-4">
+
+      {% from "_formhelpers.html" import render_field %}
+
+      <form method="POST" action="{{ url_for('client_form_view')}}" role="form">
+        <!-- for security CSRF token to prevent code injection -->
+        {{ form.hidden_tag() }}
+
+        {{ render_field(form.name, class='form-control') }}
+
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

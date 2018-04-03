@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/index.css') }}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" style="color:white;">Request Manager</a>
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
+        <ul class="navbar-nav mr-auto">
+          <!-- <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('product_list_view')}}">Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('product_form_view')}}">Create Product</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('request_list_view')}}">Requests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('request_form_view')}}">Create Request</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('client_list_view')}}">Clients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('client_form_view')}}">Create Client</a>
+          </li> -->
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="request_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Request</a>
+            <div class="dropdown-menu" aria-labelledby="Request">
+              <a class="dropdown-item" href="request_form_view">Create Request</a>
+              <a class="dropdown-item" href="request_list_view">View Requests</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="product_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Product</a>
+            <div class="dropdown-menu" aria-labelledby="Product">
+              <a class="dropdown-item" href="product_form_view">Create Product</a>
+              <a class="dropdown-item" href="product_list_view">View Products</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="client_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Client</a>
+            <div class="dropdown-menu" aria-labelledby="Client">
+              <a class="dropdown-item" href="client_form_view">Create Client</a>
+              <a class="dropdown-item" href="client_list_view">View Clients</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      {% block content %}{% endblock %}
+    </div>
+
+    <!-- jquery must be loaded before bootstrap because it is a dependency, otherwise get error cannot read 'fn' of undefined -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  </body>
+</html>
